@@ -1,0 +1,57 @@
+:root{
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+  --bg:#f4f8fa;--surface:#ffffff;--ink:#14263a;--muted:#4b5f73;--sky:#2f78b7;--sky-deep:#173f66;
+  --grass:#6f8f2f;--gold:#d99a1c;--line:#d3dee6;--hero-top:#8fc3ea;--hero-bot:#e8f2f8;
+  --hill1:#a9c26b;--hill2:#7c9a3a;--hill3:#55732a;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1a27;--surface:#162636;--ink:#eaf1f6;--muted:#9db1c2;--sky:#6fb0e6;--sky-deep:#a9d1f0;
+  --grass:#a3c35a;--gold:#f0b73e;--line:#294055;--hero-top:#10304c;--hero-bot:#1d4163;
+  --hill1:#3f5a24;--hill2:#2f461b;--hill3:#22340f;}}
+:root[data-theme="dark"]{
+  --bg:#0e1a27;--surface:#162636;--ink:#eaf1f6;--muted:#9db1c2;--sky:#6fb0e6;--sky-deep:#a9d1f0;
+  --grass:#a3c35a;--gold:#f0b73e;--line:#294055;--hero-top:#10304c;--hero-bot:#1d4163;
+  --hill1:#3f5a24;--hill2:#2f461b;--hill3:#22340f;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 "Noto Sans JP",system-ui,sans-serif}
+h1,h2,h3{font-family:"Noto Serif JP",Georgia,serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;display:flex;justify-content:space-between;align-items:center;
+  padding:.8rem clamp(1rem,5vw,3rem);background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav b{font-family:"Noto Serif JP",serif;font-size:1.1rem}
+nav div{display:flex;gap:1.2rem;font-size:.95rem}
+nav a{text-decoration:none;color:var(--muted)}nav a:hover{color:var(--sky)}
+.hero{position:relative;overflow:hidden;background:linear-gradient(var(--hero-top),var(--hero-bot));padding:clamp(3rem,10vw,7rem) clamp(1rem,5vw,3rem) 0}
+.hero h1{font-size:clamp(2.6rem,9vw,6.5rem);font-weight:800;max-width:9em;line-height:1.25;color:var(--sky-deep);letter-spacing:-.02em}
+.hero p{max-width:28em;font-size:1.2rem;color:var(--ink);margin:1.2rem 0 1.8rem}
+.btn{display:inline-block;background:var(--gold);color:#1b1405;font-weight:600;padding:.85rem 1.6rem;border-radius:999px;text-decoration:none}
+.btn:hover{filter:brightness(1.08)}
+.land{display:block;width:100%;height:auto;max-height:72vh;object-fit:cover;margin-top:2rem;border-radius:10px 10px 0 0}
+.land{animation:rise 1.4s ease-out both}
+@keyframes rise{from{transform:translateY(40px);opacity:0}to{transform:none;opacity:1}}
+@media (prefers-reduced-motion:reduce){.land{animation:none}html{scroll-behavior:auto}}
+section{padding:clamp(3rem,8vw,5.5rem) clamp(1rem,5vw,3rem);max-width:1100px;margin:auto}
+h2{font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:.6rem}
+.lead{color:var(--muted);max-width:34em;margin:0 0 2.2rem}
+.dest{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.card img{display:block;width:100%;height:170px;object-fit:cover}
+.card div{padding:1.1rem 1.2rem 1.4rem}
+.card h3{font-size:1.3rem;margin-bottom:.4rem}
+.card p{margin:0;color:var(--muted);font-size:.97rem}
+.card small{display:block;margin-top:.7rem;color:var(--sky);font-weight:600}
+.planner{background:var(--sky-deep);color:#fff;max-width:none;border-radius:0}
+:root[data-theme="dark"] .planner,.planner{--pl:#fff}
+.planner .in{max-width:1100px;margin:auto}
+.tabs{display:flex;flex-wrap:wrap;gap:.6rem;margin:1.2rem 0}
+.tabs button{font:inherit;cursor:pointer;border:1.5px solid #ffffff88;background:transparent;color:#fff;padding:.6rem 1.2rem;border-radius:999px}
+.tabs button[aria-pressed="true"]{background:var(--gold);border-color:var(--gold);color:#1b1405;font-weight:600}
+#out{background:#ffffff14;border-radius:6px;padding:1.3rem 1.5rem;max-width:36em;min-height:8rem}
+#out h3{margin-bottom:.5rem}#out p{margin:.3rem 0}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin-top:1rem}
+.facts div{border-left:4px solid var(--grass);padding-left:1rem}
+.facts b{display:block;font-family:"Noto Serif JP",serif;font-size:1.25rem}
+.facts span{color:var(--muted);font-size:.95rem}
+footer{border-top:1px solid var(--line);padding:2rem clamp(1rem,5vw,3rem);text-align:center;color:var(--muted);font-size:.95rem}
